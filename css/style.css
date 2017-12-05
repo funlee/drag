@@ -1,0 +1,36 @@
+*{
+  margin:0;
+  padding: 0;
+}
+.screen {
+  position:absolute;
+  top:0;
+  left:0;
+  background:#000;
+  z-index:9998;
+  filter:alpha(opacity=30);
+  opacity:0.3;
+}
+.login {
+  width:350px;
+  height:250px;
+  border:1px solid #ccc;
+  position:absolute;
+  z-index:9999;
+  background:skyblue;
+  display: none;
+}
+.login h2 {
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  font-size:14px;
+  letter-spacing:1px;
+  color:#666;
+  background:url(../img/login-header.png) repeat-x;
+  margin:0;
+  padding:0;
+  border-bottom:1px solid #ccc;
+  margin:0 0 20px 0;
+  cursor:move;
+}
