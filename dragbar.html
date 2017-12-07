@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>未完成-拖拽滚动条</title>
+    <link rel="stylesheet" href="css/dragbar.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="drag-bar">
+            <span class="drag-start">0</span>
+            <div class="drag-shape">
+                <div class="drag-btn drag-btn-start" style="left:0">
+                    <div class="drag-cur">0</div>
+                </div>
+                <div class="drag-proress-bar" style="width:500px"></div>
+                <div class="drag-btn drag-btn-end" style="left:500px">
+                    <div class="drag-cur">100</div>
+                </div>
+            </div>
+            <span class="drag-end">100</span>
+        </div>
+    </div>
+
+
+    <script src="js/dragbar.js"></script>
+    <script>
+        drag.init()
+    </script>
+</body>
+
+</html>

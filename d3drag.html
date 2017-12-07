@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3拖拽功能</title>
+</head>
+<body>
+  
+
+  <script src="js/d3.v3.min.js"></script>
+  <script>
+    var width = 400
+    var height = 400
+    var circles = [
+      {
+        cx:150,
+        cy:200,
+        r:30
+      },
+      {
+        cx:250,
+        cy:200,
+        r:30
+      }
+    ]
+    var svg = d3.select('body').append('svg').attr({
+      'width':width,
+      'height':height
+    })
+    var drag = d3.behavior.drag()
+        .origin(function (d, i) {
+          return { x: d.cx, y: d.cy }
+          // return {x:150,y:200}
+        })
+        .on('dragstart', function (d) {
+          console.log('拖拽开始')
+        })
+        .on('dragend', function (d) {
+          console.log('拖拽结束')
+        })
+        .on('drag', function (d) {
+          d3.select(this).attr({
+            'cx': d.cx = d3.event.x,
+            'cy': d.cy = d3.event.y
+          })
+        })
+
+    svg.selectAll('circle').data(circles)
+    .enter().append('circle')
+    .attr({
+      'cx':(d) => {return d.cx},
+      'cy': (d) => { return d.cy },
+      'r': (d) => { return d.r },
+      'fill':'skyblue'
+    })
+    .call(drag)
+
+    
+  </script>
+</body>
+</html>

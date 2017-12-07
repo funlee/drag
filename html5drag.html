@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>拖放示例</title>
+</head>
+<body onload="init()">
+  <h1>简单拖放示例</h1>
+  <div id="dragme" draggable="true" style="width:200px;border:1px solid red;margin-bottom:20px;">请拖到蓝色框</div>
+  <div id="text" style="width:200px;height:200px;border:1px solid blue;"></div>
+
+  <script>
+    function init() {
+      var source = document.getElementById('dragme')
+      var dest = document.getElementById('text')
+
+      source.addEventListener('dragstart',function(ev) {
+        var dt = ev.dataTransfer;
+        dt.effectAllowed = 'all'
+        dt.setData('text/plain','你好')
+      },false)
+
+      dest.addEventListener('dragend',function(ev) {
+        ev.preventDefault()
+      },false)
+      
+      dest.addEventListener('drop',function(ev) {
+        var dt = ev.dataTransfer;
+        var text = dt.getData('text/plain')
+        dest.textContent += text;
+        ev.preventDefault()
+        ev.stopPropagation()
+      },false)
+    }
+    document.ondragover = function(e) {
+      e.preventDefault()
+    }
+    document.ondrop = function(e) {
+      e.preventDefault()
+    }
+  </script>
+</body>
+</html>

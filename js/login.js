@@ -21,7 +21,6 @@ var drag = {
         var e = self.getEvent(e);
         var left = e.clientX - diffX;
         var top = e.clientY - diffY;
-        console.log(_this.offsetWidth)
         if (left < 0) {
           left = 0;
         } else if (left > self.getInner().width - _this.offsetWidth) {
